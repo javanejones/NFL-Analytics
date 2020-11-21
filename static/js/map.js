@@ -38,15 +38,15 @@ d3.json(queryUrl2).then(function (teams) {
             return isDivisionChecked && isConferenceChecked //only true if both are true
         },
         onEachFeature: (feature,layer) => {
-            layer.bindPopup(`<a>${feature.properties.club}</a><hr>
-            <a>
+            layer.bindPopup(`<h2>${feature.properties.club}</h2><hr>
+            <h3>
             Head Coach: ${feature.properties.head_coach}<br>
             Confercence: ${feature.properties.conference}<br>
             Division: ${feature.properties.division}<br>
             City: ${feature.properties.city}<br>
             Statium: ${feature.properties.stadium}<br>
             Capacity: ${feature.properties.capacity}
-            </a>`);
+            </h3>`);
         }
     }).addTo(myMap)
 
