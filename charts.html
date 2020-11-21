@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v4.1.1">
+        <title>Interactive Chart</title>
+    
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/jumbotron/">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <!-- Latest compiled and minified JavaScript -->
+        
+        <style>
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+
+          .dash-header--nfl-logo {
+            height: 60px;
+            float: left;
+          }
+
+          .dash-header--team-logo {
+            height: 60px;
+            float: right;
+          }
+
+          .dash-header--team-logo img {
+            max-height: 100%;
+          }
+
+          .dash-header--nfl-logo img {
+            max-height: 100%;
+          }
+          
+          .dash-header--info {
+            display: inline;
+          }
+
+          .dash-header--info h1 {
+            display: inline;
+            text-align: center;
+            color: white;
+          }
+          .dash-header {
+            height: 60px;
+            text-align: center;
+          }
+          .blue {
+            background-color: blue;
+            padding-bottom: 20px;
+            display : none;
+          }
+          .left-gutter-options {
+            padding: 20px;
+          }
+          select {
+            width: 100%;
+            display: inline;
+          }
+          .team-selector {
+            padding : 20px 40px 20px 40px;
+            margin-bottom: 20px;
+          }
+          .group-filter {
+            margin-bottom: 15px;
+          }
+
+          #nfl-filters {
+            padding : 10px 0 0 25px;
+            margin-bottom: 5px;
+          }
+          #situational-filters {
+            padding : 10px 0 0 25px;
+          }
+          #expand-filters {
+            margin-bottom: 20px;
+            width: 100%;
+            font-weight: 700;
+          }
+          #apply-filters {
+            display: block;
+            width: 100%;
+            font-weight:700;
+            margin-left: -20px;
+          }
+          #displayAppliedFilters {
+            margin : 20px 20px 0 20px;
+            padding : 10px;
+          }
+
+          #displayAppliedFilters span {
+            padding : 10px;
+            border : 1px solid black;
+            font-weight : bold;
+            margin : 5px;
+          }
+
+          .card-body {
+            text-align : center;
+          }
+
+          .card {
+            padding : 20px;
+            height : 350px;
+          }
+
+          .card .row {
+            align-items : center;
+            height : 300px;
+          }
+
+          .card-body {
+            color : green;
+          }
+
+          #prediction--image {
+            padding: 20px;
+          }
+
+          #prediction--play_type {
+            font-size: 3.0rem;
+            font-weight : 700;
+          }
+
+          #prediction--play_frequency {
+            font-size : 3.5rem;
+            font-weight : 900;
+          }
+
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+          }
+
+          @media (max-width: 767px) {
+            #prediction--image {
+              display : none;
+            }
+          }
+        </style>
+        <!-- Custom styles for this template -->
+        <link href="../css/jumbotron.css" rel="stylesheet">
+      </head>
+      <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#">NFL Analysis</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="matrix.html">Matrix</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="map.html">Interactive Map</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="charts.html">Interactive Chart</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="dashboard.html">Tableau</a>
+                    </li>
+                    
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+            </nav>
+        
+            <div class="blue row justify-content-center">
+                <div class="col-md-7 col-lg-5 col-sm-12">
+                    <div class="dash-header mt-3">
+                        <div class="dash-header--nfl-logo mr-8">
+                          <img src="https://content.sportslogos.net/logos/7/1007/full/dwuw5lojnwsj12vfe0hfa6z47.gif" class="rounded float-left mr-8" alt="NFL Logo">
+                        </div>
+                        <div class="dash-header--info mt-1 ml-1 mr-1">
+                            <h1>Play Selection</h1>
+                        </div>
+                        <div class="dash-header--team-logo mr-8">
+                          <img src="https://content.sportslogos.net/logos/7/1007/full/dwuw5lojnwsj12vfe0hfa6z47.gif" class="rounded float-left mr-8" alt="NFL Logo">
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-12 left-gutter-options">
+                <div class="team-selector bg-light border border-primary rounded">
+                  <h5>Select NFL Team:</h5>
+                  <select id="selDataset" onchange="optionChanged(this.value)">
+                    <option value="NFL">NFL</option>
+                    <option value="ARI">Arizona Cardinals</option>
+                    <option value="ATL">Atlanta Falcons</option>
+                    <option value="BAL">Baltimore Ravens</option>
+                    <option value="BUF">Buffalo Bills</option>
+                    <option value="CAR">Carolina Panthers</option>
+                    <option value="CHI">Chicago Bears</option>
+                    <option value="CIN">Cincinnati Bengals</option>
+                    <option value="CLE">Cleveland Browns</option>
+                    <option value="DAL">Dallas Cowboys</option>
+                    <option value="DEN">Denver Broncos</option>
+                    <option value="DET">Detroit Lions</option>
+                    <option value="GB">Green Bay Packers</option>
+                    <option value="HOU">Houston Texans</option>
+                    <option value="IND">Indianapolis Colts</option>
+                    <option value="JAX">Jacksonville Jaguars</option>
+                    <option value="KC">Kansas City Chiefs</option>
+                    <option value="LAC">Los Angeles Chargers</option>
+                    <option value="LAR">Los Angeles Rams</option>
+                    <option value="MIA">Miami Dolphins</option>
+                    <option value="MIN">Minnesota Vikings</option>
+                    <option value="NE">New England Patriots</option>
+                    <option value="NO">New Orleans Saints</option>
+                    <option value="NYG">New York Giants</option>
+                    <option value="NYJ">New York Jets</option>
+                    <option value="OAK">Oakland Raiders</option>
+                    <option value="PHI">Philadelphia Eagles</option>
+                    <option value="PIT">Pittsburgh Steelers</option>
+                    <option value="SEA">Seattle Seahawks</option>
+                    <option value="SF">San Francisco 49ers</option>
+                    <option value="TB">Tampa Bay Buccaneers</option>
+                    <option value="TEN">Tennessee Titans</option>
+                    <option value="WAS">Washington Football Team</option>
+                  </select>
+                </div>
+                <button id="expand-filters" class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="nfl-filters situational-filters">Filters</button>
+                <div id="nfl-filters" class="collapse multi-collapse border-top border-bottom border-dark">
+                  <h5>Conference</h5>
+                  <div id="conference-filter" class="group-filter btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-primary active">
+                      <input type="radio" name="options" id="all-con" checked> All
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="afc"> AFC
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="nfc"> NFC
+                    </label>
+                  </div>
+                  <h5>Division</h5>
+                  <div id="division-filter" class="group-filter btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-primary active">
+                      <input type="radio" name="options" id="all-div" checked> All
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="east"> East
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="north"> North
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="south"> South
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="west"> West
+                    </label>
+                  </div>
+                </div>
+                <div id="situational-filters" class="collapse multi-collapse">  
+                  <h5>Down</h5>
+                  <div id="down-filter" class="group-filter btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-primary active">
+                      <input type="radio" name="options" id="allD" checked> All
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="FirstD"> 1st
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="SecondD"> 2nd
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="ThirdD"> 3rd
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="FourthD"> 4th
+                    </label>
+                  </div>
+                  <h5>Quarter</h5>
+                  <div id="quarter-filter" class="group-filter btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-primary active">
+                      <input type="radio" name="options" id="allQ" checked> All
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="FirstQ"> 1st
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="SecondQ"> 2nd
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="ThirdQ"> 3rd
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="FourthQ"> 4th
+                    </label>
+                  </div>
+                  <h5>Winning or Losing</h5>
+                  <div id="outcome-filter" class="group-filter btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-primary active">
+                      <input type="radio" name="options" id="all-outcomes" checked> All
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="winning"> Winning
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="losing"> Losing
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="tied"> Tied
+                    </label>
+                  </div>
+                  <h5>Yards to Gain</h5>
+                  <div id="distance-filter" class="group-filter btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-primary active">
+                      <input type="radio" name="options" id="all-distance" checked> All
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="short-distance"> 1-3
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="medium-distance"> 4-6
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="long-distance"> 7-10
+                    </label>
+                    <label class="btn btn-outline-primary">
+                      <input type="radio" name="options" id="xlong-distance"> 11+
+                    </label>
+                  </div>
+                  <button id="apply-filters" type="button" class="btn btn-success" onclick="applyFilters()">Apply Filters</button>
+                </div>  
+              </div>
+              <div class="col-lg-9 col-md-6 col-sm-12">
+                <div id="displayAppliedFilters"></div>
+                <div class="row">
+                  <div class="col-lg-7 col-md-12">
+                    <div id="bar-title-block"></div>
+                    <div id="bar"></div>
+                  </div>
+                  <div class="col-lg-5 col-md-12">
+                    <div id="radar">
+                      <div class="holder" style="margin: 60px 20px 30px 0; width: 100% ;">
+                        <canvas id="myChart"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-7 col-md-12">
+                    <div id="prediction" class="card mb-3" style="max-width: 100%;">
+                      <div class="row no-gutters">
+                        <div id="prediction--image" class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h3 id="prediction--play_type" class="card-title"></h3>
+                            <h1 id="prediction--play_frequency" class="card-text"></h1>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-5 col-md-12">
+                    <div id="sampleSize"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>  
+        <script src= 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'> </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="static/js/interactive-be.js"></script>
+        <script>
+          var ctx = document.getElementById("myChart");
+          var myChart = new Chart(ctx, {
+              type: 'radar',
+              data:{
+              labels:["pass_left", "pass_middle", "pass_right", "run_left", "run_middle", "run_right"],
+              datasets: [{
+              data:[0.206, 0.134, 0.230, 0.156, 0.119, 0.155],
+              label: "NFL",
+              backgroundColor: "transparent",
+              borderColor: [
+                      'navy',
+                  ],
+                  boderWidth:3
+              }
+              ]
+              },
+              options:{
+              title:{
+                  display:true,
+                  text:`Play Type Frequency: Entire NFL`
+              }
+              }
+          });
+
+          function updateRadar(data1, data2, data3, label1, label2) {
+            var ctx = document.getElementById("myChart");
+
+            myChart.destroy();
+
+            if (label1 != 'NFL') {
+              myChart = new Chart(ctx, {
+                  type: 'radar',
+                  data:{
+                  labels: data3,
+                  datasets: [{
+                  data: data1,
+                  label: label1,
+                  backgroundColor: "transparent",
+                  borderColor: [
+                          'navy',
+                      ],
+                      boderWidth:3
+                  },
+                  {data: data2,
+                  label: label2,
+                  backgroundColor: "transparent",
+                  borderColor: [
+                          'rgb(204,204,204)',
+                      ],
+                      boderWidth:3
+                  }    
+                  ]
+                  },
+                  options:{
+                  title:{
+                      display:true,
+                      text:`Play Type Frequency: ${label1} vs ${label2}`
+                  }
+                  }
+              });
+            }
+            
+            else {
+              myChart = new Chart(ctx, {
+                  type: 'radar',
+                  data:{
+                  labels: data3,
+                  datasets: [{
+                  data: data2,
+                  label: label2,
+                  backgroundColor: "transparent",
+                  borderColor: [
+                          'navy',
+                      ],
+                      boderWidth:3
+                  }
+                  ]
+                  },
+                  options:{
+                  title:{
+                      display:true,
+                      text:`Play Type Frequency: ${label2}`
+                  }
+                  }
+              });
+            }
+          };
+        </script>
+      </body>
+
+</html>

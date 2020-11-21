@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Pass or Run</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/jumbotron/">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+    <!-- Bootstrap core CSS -->
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">NFL Analysis</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="matrix.html">Matrix</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="map.html">Interactive Map</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="charts.html">Interactive Chart</a>
+      </li>
+          <li class="nav-item active">
+        <a class="nav-link" href="dashboard.html">Tableau</a>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+      <h2 class="display-6" style="text-align: center">Hello, NFL!</h2>
+      <hr>
+  
+    <!-- The div that holds our map -->
+    <div id="map"></div>
+
+    <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Sports Analytics: An Introduction</h2>
+        <p>Sports analytics is a field that applies data analysis techniques to analyze various components of the major sports, such as player performance, business performance, recruitment, and more.
+        In this example, we explore ten years of NFL data (2009-2018) in an effort to better understand our competitors' offensive plays. </a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Machine Learning: Confusion Matrixes</h2>
+        <p>The confusion matrixes on the following page illustrate the results of the Random Forest classifier machine learning algorithm. The visualization provides insight into play selection and our models' accuracy. </a></p>
+        <p><a class="btn btn-secondary" href="matrix.html" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>NFL Dashboard</h2>
+        <p>The following dashboard is intended as an exploratory tool. Play selection between teams is widely varied and the following visualizations lend context to a surprisingly complex problem. </a></p>
+        <p><a class="btn btn-secondary" href="charts.html" role="button">View details &raquo;</a></p>
+      </div>
+    </div>
+
+    <hr>
+
+    </div> <!-- /container -->
+
+
+
+<footer class="container">
+  <p>&copy; Javane Jones 2020</p>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script> 
+<!-- 4.5.0 / 5.9.7 -->
+<!-- API key -->
+<script type="text/javascript" src="static/js/config.js"></script>
+<!-- Our JavaScript -->
+<script type="text/javascript" src="static/js/logic.js"></script>
+
+</body>      
+</html>

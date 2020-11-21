@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.1.1">
+  <title>Pass or Run</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/jumbotron/">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin="" />
+
+  <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="css/jumbotron.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">NFL Analysis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="matrix.html">Matrix</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="map.html">Interactive Map</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="charts.html">Interactive Chart</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard.html">Tableau</a>
+        </li>
+        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <h2 class="display-6" style="text-align: center">Map Your Team!</h2>
+  <hr>
+   
+
+  <!-- The div that holds our buttons -->
+  <div class="container-fluid">
+    <div class='row'>
+      <div class="col-sm-5" id="conferences">
+        <br><a style="font-weight: bold;">Conference</a><br><br>
+        <input type="checkbox" class="conference" name="American Football Conference" value="American Football Conference" checked="true">
+        <label for="American Football Conference">American Football Conference</label>
+        <br>
+        <input type="checkbox" class="conference" name="National Football Conference" value="National Football Conference" checked="true">
+        <label for="National Football Conference">National Football Conference</label>
+      </div>
+
+      <div class="col-sm-5" id="divisions">
+        <br><a style="font-weight: bold;">Division</a><br><br>
+        <input type="checkbox" class="division" name="East" value="East" checked="true">
+        <label for="East">East</label>
+        <input type="checkbox" class="division" value="North" checked="true">
+        <label for="North">North</label>
+        <input type="checkbox" class="division" value="South" checked="true">
+        <label for="South">South</label>
+        <input type="checkbox" class="division" value="West" checked="true">
+        <label for="West">West</label>
+      </div>
+    </div>
+  </div>
+
+   <!-- The div that holds our map -->
+   <div id="map"></div>
+<hr>
+  
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+  <!-- D3 JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script> 
+  <!-- 4.5.0 / 5.9.7 -->
+  <!-- API key -->
+  <script type="text/javascript" src="static/js/config.js"></script>
+  <!-- Our JavaScript -->
+  <script type="text/javascript" src="static/js/map.js"></script>
+</body>
+
+</html>

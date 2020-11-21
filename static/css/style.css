@@ -1,0 +1,49 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+/* body {
+    padding-top: 3.5rem;
+}
+   */
+
+   *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.box {
+  width: 300px;
+  position: fixed;
+  bottom: 0px;
+  left: 10px;
+  z-index: 1000;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-weight: bold; */
+  
+}
+
+#conferences {
+  margin-top: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  height: px;
+}
+#divisions {
+  margin-top: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  height: px;
+  margin-bottom: 1px;
+}
+/* set map, body, and html to 100% of the screen size */
+#map,
+body,
+html {
+  height: 86%;
+}
+
+.inputs {
+  padding-bottom: 1em;
+}
