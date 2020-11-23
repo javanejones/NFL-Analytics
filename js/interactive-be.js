@@ -100,11 +100,15 @@ function applyFilters() {
                 filterTeam = "defteam";
                 filterDiv = "defdivision";
                 filterCon = "defconference";
+
+                displayAppliedFilters.append("span")
+                    .text(`${teamSelected} Defense`);
             }
 
             if (seasonSelected != 'allSeasons') {
                 console.log(`Applying season filter to ${seasonSelected}`);
                 filteredData = filteredData.filter(i => i.season === seasonSelected);
+                nflData = nflData.filter(i => i.season === seasonSelected);
             }
 
             if (teamSelected === 'NFL') {
