@@ -121,7 +121,7 @@ function applyFilters() {
                     // Filter data by conference selected
                     filteredData = filteredData.filter(i => i[filterCon] === conferenceFilter);
                     // Update team selected label for plots
-                    teamSelected = d3.selectAll("#nfl-filters label.active input")._groups[0][0].getAttribute('id').toUpperCase();
+                    teamSelected = d3.selectAll("#nfl-filters label.active input")._groups[0][1].getAttribute('id').toUpperCase();
 
                     displayAppliedFilters.append("span")
                         .text(`Conference: ${conferenceFilter.toUpperCase()}`);
@@ -134,7 +134,7 @@ function applyFilters() {
                     // check if conference filter is also applied
                     if (teamSelected != 'NFL') {
                         // select division id
-                        var divisionSelected = d3.selectAll("#nfl-filters label.active input")._groups[0][1].getAttribute('id').toUpperCase();
+                        var divisionSelected = d3.selectAll("#nfl-filters label.active input")._groups[0][2].getAttribute('id').toUpperCase();
                         // update team selected label to conference and division for plots
                         teamSelected = `${teamSelected} ${divisionSelected}`;
                     }
