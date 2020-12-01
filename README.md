@@ -1,5 +1,7 @@
 # NFL-Analytics
 
+Deployment link: 
+
 Final Project: Northwestern Data Visualization Bootcamp 2020
 
 Team Football Nostradami
