@@ -1,6 +1,6 @@
 # NFL-Analytics
 
-Deployment link: 
+Deployment link: https://javanejones.github.io/NFL-Analytics/
 
 Final Project: Northwestern Data Visualization Bootcamp 2020
 
